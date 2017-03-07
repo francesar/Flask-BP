@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script
+ src="https://code.jquery.com/jquery-3.1.1.min.js"
+ integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+ crossorigin="anonymous"></script>
+ <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css">
+ <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+	<h1 class="title">WTF Columbia</h1>
+	<div class="ui container fluid">
+		<div class="content">
+			<div class="ui grid">
+       <div class="four wide column">
+         <div class="ui vertical fluid tabular menu">
+           <a class="item active">
+             Posts
+           </a>
+           <a class="item" href="/people">
+            People
+          </a>
+          <a class="item" href="/post">
+          Make a post
+          </a>
+        </div>
+      </div>
+      <div class="twelve wide stretched column">
+         <div class="ui segment">
+           <h2>Post 1</h2>
+           <p>Stuff stuff more stuff more more stuff oh no theres more stuff</p>
+           <div class="ui left labeled button" tabindex="0">
+            <a class="ui basic right pointing label">
+             <p id="">2,048</p>
+           </a>
+           <div class="ui button" onclick="myfunc(this)">
+             <i class="heart icon"></i> Like
+           </div>
+           </div>
+         </div>
+         <div class="ui segment">
+          <p>Post 2</p>
+        </div>
+        {% for post in posts %}
+          <div class="ui segment">
+            <h2>{{ post.title }}</h2>
+            <p>By {{ post.author }}</p>
+            <p> {{ post.text }} </p>
+           <div class="ui left labeled button" tabindex="0">
+            <a class="ui basic right pointing label" >
+             <p id="{{post.title}}">{{ post.upvotes }}</p>
+           </a>
+        <div class="ui button" onclick="myfunc('{{post.title}}')">
+             <i class="heart icon"></i> Like
+           </div>
+           </div>
+          </div>
+        {% endfor %}
+      </div>
+  </div>	
+  </div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+ <script type="text/javascript", src="{{ url_for('static', filename='scripts/script.js')}}"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+body {
+	background-color: aliceblue;
+}
+
+.title {
+	padding-top: 1rem;
+	text-align: center;
+}
+
+.content {
+	padding-top: 25px;
+}
