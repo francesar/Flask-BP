@@ -4,7 +4,7 @@ import requests as r
 from mongoengine import connect
 
 from models import Post
-from Post import Post
+#from Post import Post
 
 app = Flask(__name__)
 app.config["DEBUG"] == True
