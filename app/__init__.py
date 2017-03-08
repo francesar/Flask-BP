@@ -15,7 +15,7 @@ connect(host="mongodb://cesar:cesar@ds123050.mlab.com:23050/flasktalk")
 
 @app.route('/')
 def index():
-	user_posts = Post.objects
+	user_posts = Post.Post.objects
 	return render_template("index.html", posts=user_posts)
 
 @app.route("/post")
